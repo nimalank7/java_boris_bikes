@@ -21,4 +21,9 @@ public class DockingStation {
     public Bike releaseBike() {
         return bikes.remove(bikes.size() -1);
     }
+
+    public Bike dock_bike(Bike bike) {
+        getBikes().add(bike);
+        return bike;
+    }
 }
