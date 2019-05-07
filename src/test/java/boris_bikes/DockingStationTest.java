@@ -26,7 +26,7 @@ public class DockingStationTest {
     }
 
     @Test
-    public void ReturnTrueDockBike(){
+    public void ReturnDockingStationSizeAsOne(){
         DockingStation dockingStation = new DockingStation(new ArrayList<Bike>());
         dockingStation.dock_bike(new Bike());
         ArrayList<Bike> bikes = dockingStation.getBikes();
