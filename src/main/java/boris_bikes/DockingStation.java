@@ -5,13 +5,6 @@ import java.util.Optional;
 
 public class DockingStation {
 
-    public static void main(String[] args) {
-        DockingStation dockingStation = new DockingStation(new ArrayList<Bike>());
-        dockingStation.dock_bike(new Bike());
-        Optional<Bike> bike = dockingStation.releaseBike();
-        System.out.println(bike.get().getCondition());
-    }
-
     ArrayList<Bike> bikes;
 
     int capacity = 20;
@@ -45,6 +38,10 @@ public class DockingStation {
     public boolean isEmpty() {
         return getBikes().size() == 0 ? true : false;
 
+    }
+
+    public boolean isLessThanCapacity() {
+        return bikes.size() < 20 ? true : false;
     }
 
     public Bike dock_bike(Bike bike) {

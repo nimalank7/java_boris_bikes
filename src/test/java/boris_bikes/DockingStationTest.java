@@ -60,6 +60,22 @@ public class DockingStationTest {
     @Test
     public void returnsACapacityOfTwenty() {
         DockingStation dockingStation = new DockingStation(new ArrayList<Bike>());
-        assertEquals("Returns a default capacity of 20", dockingStation.getCapacity(), 20);
+        assertEquals("Returns a default capacity of 20", 20, dockingStation.getCapacity());
+    }
+
+    @Test
+    public void returnsTrueWhenLessThanCapacity(){
+        DockingStation dockingStation = new DockingStation(new ArrayList<Bike>());
+        assertEquals("Returns true for empty docking station", true, dockingStation.isLessThanCapacity());
+    }
+
+    @Test
+    public void returnsFalseWhenGreaterThanCapacity() {
+        ArrayList<Bike> bikes = new ArrayList<>();
+        while(bikes.size() < 20) {
+            bikes.add(new Bike());
+        }
+        DockingStation dockingStation = new DockingStation(bikes);
+        assertEquals("Returns false as the number of bikes exceeds 20", false, dockingStation.isLessThanCapacity());
     }
 }
