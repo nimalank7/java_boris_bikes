@@ -56,4 +56,10 @@ public class DockingStationTest {
         Bike released_bike = dockingStation.releaseBike().get();
         assertEquals("Returns a Bike optional when releasing bike", bike, released_bike);
     }
+
+    @Test
+    public void returnsACapacityOfTwenty() {
+        DockingStation dockingStation = new DockingStation(new ArrayList<Bike>());
+        assertEquals("Returns a default capacity of 20", dockingStation.getCapacity(), 20);
+    }
 }

@@ -14,6 +14,12 @@ public class DockingStation {
 
     ArrayList<Bike> bikes;
 
+    int capacity = 20;
+
+    public int getCapacity() {
+        return capacity;
+    }
+
     public ArrayList<Bike> getBikes() {
         return bikes;
     }
