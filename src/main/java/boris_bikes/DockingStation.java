@@ -1,8 +1,16 @@
 package boris_bikes;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class DockingStation {
+
+    public static void main(String[] args) {
+        DockingStation dockingStation = new DockingStation(new ArrayList<Bike>());
+        dockingStation.dock_bike(new Bike());
+        Optional<Bike> bike = dockingStation.releaseBike();
+        System.out.println(bike.get().getCondition());
+    }
 
     ArrayList<Bike> bikes;
 
@@ -18,8 +26,19 @@ public class DockingStation {
         this.bikes = bikes;
     }
 
-    public Bike releaseBike() {
-        return bikes.remove(bikes.size() -1);
+    public Optional<Bike> releaseBike() {
+
+        if (isEmpty() == false) {
+            Bike bike = bikes.remove(bikes.size() -1);
+            return Optional.of(bike);
+        }
+
+        return Optional.empty();
+    }
+
+    public boolean isEmpty() {
+        return getBikes().size() == 0 ? true : false;
+
     }
 
     public Bike dock_bike(Bike bike) {
